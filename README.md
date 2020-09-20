@@ -6,9 +6,16 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
 ### How can I join?
 
-* join bot by [link]() or find him by *@carsurfer_bot* name
+* join bot by [link](t.me/carsurfing_bot) or find him by *@carsurfer_bot* name
 * type `/start` for running the bot
 * select Your desired car and other ditails
+
+***
+
+### How can I deploy it?
+
+* run `deploy_telegram_bot.sh` to install python virtual environment
+* run `python3 index.py` to run *telegram bot server*
 
 ***
 
