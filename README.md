@@ -14,8 +14,10 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
 ### How can I deploy it?
 
-* run `deploy_telegram_bot.sh` to install python virtual environment
-* run `python3 index.py` to run *telegram bot server*
+ - ###### Telegram bot
+ 
+    * run `deploy_telegram_bot.sh` to install python virtual environment
+    * run `python3 index.py` to run telegram bot server
 
 ***
 
