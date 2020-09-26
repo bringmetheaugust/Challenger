@@ -1,4 +1,4 @@
-#### What is this?   
+### What is this?   
 
 Main server side for *@carsurfing* project.
 Tasks:
@@ -9,7 +9,7 @@ Tasks:
 
 ***
 
-#### How can I deploy it?
+### How can I deploy it?
     
  - run `bash deploy_server.sh` to deploy required files for server:
     * local *Composer*
@@ -21,6 +21,6 @@ Required global packages:
     
 ***
 
-#### Docs
+### Docs
 [RestAPI url docs](./API_DOC.md)
 [RestAPI status docs](./API_RESPONCE_DOC.md)
