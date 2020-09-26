@@ -1,9 +1,9 @@
+# server
+/server/bin
+
 # telegram bot
 /telegram_bot/node_modules
 /telegram_bot/.env
-
-# server
-/server/bin
 
 # parser
 /parser/py_env
