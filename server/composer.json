@@ -1,0 +1,13 @@
+{
+    "name": "august/server",
+    "description": "server side for @carsurfing project",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "August Luzanovsky",
+            "email": "bringmetheaugust@gmail.com"
+        }
+    ],
+    "require": {}
+}
