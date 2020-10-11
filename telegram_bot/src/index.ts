@@ -4,7 +4,7 @@ import helpController from './controllers/help';
 import startController from './controllers/start';
 import stopController from './controllers/stop';
 
-const bot = new Telegraf(process.env.TELEGRAM_TOKEN as string);
+const bot = new Telegraf(process.env.TELEGRAM_TOKEN_TEST as string);
 
 // bot.use(Telegraf.log());
 

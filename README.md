@@ -8,7 +8,7 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
  - Telegram
 
-    * join bot by [link](t.me/carsurfing_bot) or find him by *@carsurfer_bot* name
+    * join bot by [link](t.me/carsurfing_bot) or find him by *@carsurfing_bot* name
     * type `/start` for running the bot
     * select Your desired car and other ditails
 
@@ -16,20 +16,24 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
 ### How can I deploy it?
 
- - [main server](./server/README.md)
-
- - [telegram bot](./telegram_bot/README.md)
-
- - [sites parser](./parser/README.md)
+Each module has a test domain.    
+All test domains described in the same **Docs**.
     
 ***
 
-<!-- ### Docs
+### Docs
 
-*** -->
+ - [main server](./server/README.md)
+    * [api docs](./server/API_DOC.md)
+    * [api responce doc](./server/API_RESPONCE_DOC.md)
+ - [telegram bot](./telegram_bot/README.md)
+    * [bot commands](./telegram_bot/BOT_COMMANDS.md)
+ - [site parser](./parser/README.md)
+
+***
 
 ### Who made this?
-August Luzanovsky, 2019
+August Luzanovsky, 2020
 
 ***
 

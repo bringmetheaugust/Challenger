@@ -11,7 +11,7 @@ Tasks:
 
 ### How can I deploy it?
     
- - run `bash deploy_server.sh` to deploy required files for server:
+ - run `bash deploy.sh` to install required files for server:
     * local *Composer*
  - run `php -S localhost:2110 src/index.php` to run the server
 
