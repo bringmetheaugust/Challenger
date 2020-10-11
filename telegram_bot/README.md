@@ -1,4 +1,5 @@
 ### What is this?   
+
 Telegram bot for *@carsurfing* project.
 
 ***
@@ -12,12 +13,15 @@ Telegram bot for *@carsurfing* project.
 
 ### How can I deploy it?
 
- * run `yarn` to install all *NodeJS* dependencies or run `bash deploy.sh` script
- * run `yarn dev` to start telegram bot server
+ * run `bash deploy.sh` script to install python virtual environment and all dependencies
+ * run `source py_env/bin/activate` to activate virtual environment
+ * run `python3 src/index.py` to run bot server
 
 Required global packages:
- * *NodeJS*
- * *yarn*
+
+ * *Python v3+*
+ * *pip3*
+ * *venv*
     
 ***
 
