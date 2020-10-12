@@ -1,7 +1,8 @@
 #!/bin/sh
 
-python3 -m venv py_env
-source py_env/bin/activate
-pip install python-telegram-bot --upgrade
-pip install -U pylint
+python3 -m venv py_env &&
+source py_env/bin/activate &&
+pip install -U aiogram &&
+pip install -U pylint &&
+pip install -U python-dotenv &&
 deactivate
