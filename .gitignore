@@ -2,9 +2,12 @@
 /server/bin
 
 # telegram bot
-/telegram_bot/node_modules
+/telegram_bot/py_env
 /telegram_bot/.env
 
 # parser
 /parser/py_env
 /parser/__pycache__
+
+# python
+**/__pycache__
