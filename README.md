@@ -6,11 +6,14 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
 ### How can I join it?
 
- - Telegram
-
-    * join bot by [link](t.me/carsurfing_bot) or find him by *@carsurfing_bot* name
-    * type `/start` for running the bot
-    * select Your desired car and other ditails
+  <details>
+        <summary>Telegram</summary>
+        <ul>
+            <li>join bot by <a href="t.me/carsurfing_bot">link</a> or find him by <i>@carsurfing_bot</i> name</li>
+            <li>type <code>/start</code> for running the bot</li>
+            <li>select Your desired car and other ditails</li>
+        </ul>
+    </details>
 
 ***
 

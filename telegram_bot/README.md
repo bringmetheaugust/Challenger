@@ -17,7 +17,13 @@ Telegram bot for *@carsurfing* project.
  * run `source py_env/bin/activate` to activate virtual environment
  * run `python3 src/index.py` to run bot server
 
-Required global packages:
+##### Installed local packages:
+
+ * *aiogram v2.10.1*
+ * *emoji v0.6.0*
+ * *python-dotenv v0.14.0*
+
+##### Required global packages:
 
  * *Python v3+*
  * *pip3*
