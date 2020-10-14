@@ -4,8 +4,10 @@
 # telegram bot
 /telegram_bot/py_env
 /telegram_bot/.env
-/telegram_bot/src/__pycache__
 
 # parser
 /parser/py_env
 /parser/__pycache__
+
+# python
+**/__pycache__
