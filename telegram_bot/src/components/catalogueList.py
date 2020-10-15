@@ -8,12 +8,12 @@ from constants import CONFIRM_BUTTON_TEXT, CATALOGUE_CHECKBOX_EMOJI
 def createCatalogueList(array: list, rowCount: int = 5) -> InlineKeyboardMarkup:
     catalogue = InlineKeyboardMarkup(row_width = rowCount)
 
-    for row in range(0, int(math.ceil(len(array) / rowCount))):
+    for row in range(0, int(math.ceil(len(array))), rowCount):
         rowList: list = []
 
         for item in range(0, rowCount):
             try:
-                currentItem: str = array[ row * rowCount + item ]
+                currentItem: str = array[ row + item ]
             except IndexError:
                 break
 

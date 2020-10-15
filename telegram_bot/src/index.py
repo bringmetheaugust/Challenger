@@ -1,12 +1,12 @@
 import os
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, executor
-from aiogram.types import \
-    Message, CallbackQuery, InlineKeyboardButton, \
+from aiogram.types import Message, CallbackQuery, InlineKeyboardButton, \
     InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
 from emoji import emojize
 
 from components.catalogueList import createCatalogueList, updateCatalogueList
+from constants import HELP_MESSAGE
 
 load_dotenv()
 
@@ -32,7 +32,7 @@ async def selectBrand(callback: CallbackQuery):
 
 @dp.message_handler(commands = ['help'])
 async def help(message: Message):
-    await message.reply_markup('<b>/start</b> to create new search')
+    await message.answer(text = HELP_MESSAGE, parse_mode = 'markdown')
 
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates = True)
