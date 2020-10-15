@@ -6,6 +6,7 @@ from emoji import emojize, demojize
 from components.confirmButton import confirmInlineButton
 from constants import CONFIRM_BUTTON_TEXT, CATALOGUE_CHECKBOX_EMOJI
 
+# @param rowCount - count of items in one row
 def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int = 5) -> InlineKeyboardMarkup:
     catalogue = InlineKeyboardMarkup(row_width = rowCount)
 
@@ -31,7 +32,9 @@ def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int
 
     return catalogue
 
-def updateCatalogueList(currentBrandList, selectedBrand) -> InlineKeyboardMarkup:
+# @param currentBrandList - selected InlineKeyboardMarkup
+# @param selectedBrand - callback data from selected button
+def updateCatalogueList(currentBrandList: InlineKeyboardMarkup, selectedBrand: str) -> InlineKeyboardMarkup:
     for row in currentBrandList.inline_keyboard:
         for key in row:
             if key.text == CONFIRM_BUTTON_TEXT: continue # ignore confirm button
