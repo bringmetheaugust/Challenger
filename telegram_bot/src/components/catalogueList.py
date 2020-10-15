@@ -1,11 +1,12 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from aiogram.utils.callback_data import CallbackData
 import math
 from emoji import emojize, demojize
 
 from components.confirmButton import confirmInlineButton
 from constants import CONFIRM_BUTTON_TEXT, CATALOGUE_CHECKBOX_EMOJI
 
-def createCatalogueList(array: list, rowCount: int = 5) -> InlineKeyboardMarkup:
+def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int = 5) -> InlineKeyboardMarkup:
     catalogue = InlineKeyboardMarkup(row_width = rowCount)
 
     for row in range(0, int(math.ceil(len(array))), rowCount):
@@ -17,7 +18,10 @@ def createCatalogueList(array: list, rowCount: int = 5) -> InlineKeyboardMarkup:
             except IndexError:
                 break
 
-            itemButton = InlineKeyboardButton(text = currentItem, callback_data = currentItem.lower())
+            itemButton = InlineKeyboardButton(
+                text = currentItem,
+                callback_data = callbackObject.new(data = currentItem.lower())
+            )
             
             rowList.append(itemButton)
 
