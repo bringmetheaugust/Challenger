@@ -1,26 +1,12 @@
-import os
 from dotenv import load_dotenv
-from aiogram import Bot, Dispatcher, executor
-from aiogram.types import Message, CallbackQuery, InlineKeyboardButton, \
-    InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
-from emoji import emojize
-
-from components.catalogueList import createCatalogueList, updateCatalogueList
-from constants import HELP_MESSAGE
+from aiogram import executor
+from aiogram.types import CallbackQuery
 
 load_dotenv()
 
-carList: list = ['BMW', 'Ford', 'Audi', 'Dodge', 'Reno', 'Volvo', 'Mazda', 'Porshe', 'Lamborgini', 'Lada', 'Opel', 'Chevrole', 'VolzWagen', 'Kia']
-
-bot = Bot(token = os.getenv('CHALLENGER_TESTING_TOKEN'))
-dp = Dispatcher(bot)
-
-@dp.message_handler(commands = ['start'])
-async def start(message: Message):
-    await message.answer(
-        emojize('Okey! Select car brands :oncoming_automobile:'),
-        reply_markup = createCatalogueList(carList)
-    )
+from bot import dp, bot
+import commands
+from components.catalogueList import updateCatalogueList
 
 @dp.callback_query_handler()
 async def selectBrand(callback: CallbackQuery):
@@ -29,10 +15,6 @@ async def selectBrand(callback: CallbackQuery):
         message_id = callback.message.message_id,
         reply_markup = updateCatalogueList(callback.message.reply_markup, callback.data)
     )
-
-@dp.message_handler(commands = ['help'])
-async def help(message: Message):
-    await message.answer(text = HELP_MESSAGE, parse_mode = 'markdown')
 
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates = True)
