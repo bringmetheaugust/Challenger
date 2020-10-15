@@ -1,10 +1,10 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.callback_data import CallbackData
 import math
-from emoji import emojize, demojize
 
-from components.confirmButton import confirmInlineButton
-from constants import CONFIRM_BUTTON_TEXT, CATALOGUE_CHECKBOX_EMOJI
+from components.confirmInlineButton import confirmInlineButton, toggleConfirmInlineButton
+from constants import CATALOGUE_CHECKBOX_EMOJI, CONFIRM_BUTTON_CALLBACK_QUERY_TYPE, CONFIRM_BUTTON_EMOJI
+from utils.emoji import toggleEmoji, containEmoji
 
 # @param rowCount - count of items in one row
 def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int = 5) -> InlineKeyboardMarkup:
@@ -35,18 +35,37 @@ def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int
 # @param currentBrandList - selected InlineKeyboardMarkup
 # @param selectedBrand - callback data from selected button
 def updateCatalogueList(currentBrandList: InlineKeyboardMarkup, selectedBrand: str) -> InlineKeyboardMarkup:
+    selectedBrandCount: int = 0
+    confirmButton: InlineKeyboardButton = None
+    confirmButtonIsSelected: bool = False
+
     for row in currentBrandList.inline_keyboard:
         for key in row:
-            if key.text == CONFIRM_BUTTON_TEXT: continue # ignore confirm button
+            # ignore confirm button
+            if CONFIRM_BUTTON_CALLBACK_QUERY_TYPE in key.callback_data:
+                if containEmoji(key.text, CONFIRM_BUTTON_EMOJI): confirmButtonIsSelected = True
 
-            isSelected: bool = CATALOGUE_CHECKBOX_EMOJI in demojize(key.text)
+                confirmButton = key
+
+                continue
+
+            isSelected: bool = containEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI)
 
             if selectedBrand == key.callback_data:
                 if isSelected:
-                    key.text = demojize(key.text).replace(CATALOGUE_CHECKBOX_EMOJI, '')
+                    key.text = toggleEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI, False)
                 else:
-                    key.text = emojize(f'{CATALOGUE_CHECKBOX_EMOJI} {key.text}')
-
+                    key.text = toggleEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI)
+                    selectedBrandCount += 1
+                
                 continue
-            
+
+            if isSelected: selectedBrandCount += 1
+
+    if selectedBrandCount > 0 and not confirmButtonIsSelected:
+        toggleConfirmInlineButton(confirmButton, True)
+    
+    if selectedBrandCount == 0 and confirmButtonIsSelected:
+        toggleConfirmInlineButton(confirmButton, False)
+
     return currentBrandList
