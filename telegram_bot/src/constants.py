@@ -1,6 +1,6 @@
 # components
 CONFIRM_BUTTON_EMOJI: str = ':ok:'
-DISABLE_CONFIRM_BUTTON: str = ':no_entry:Select something'
+# DISABLE_CONFIRM_BUTTON: str = ':no_entry:Select something'
 CATALOGUE_CHECKBOX_EMOJI: str = ':ballot_box_with_check:'
 
 # callback query types

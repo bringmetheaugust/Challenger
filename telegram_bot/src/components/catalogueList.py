@@ -2,8 +2,8 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.callback_data import CallbackData
 import math
 
-from components.confirmInlineButton import confirmInlineButton, toggleConfirmInlineButton
-from constants import CATALOGUE_CHECKBOX_EMOJI, CONFIRM_BUTTON_CALLBACK_QUERY_TYPE, CONFIRM_BUTTON_EMOJI
+from components.confirmInlineButton import confirmInlineButton
+from constants import CATALOGUE_CHECKBOX_EMOJI, CONFIRM_BUTTON_CALLBACK_QUERY_TYPE
 from utils.emoji import toggleEmoji, containEmoji
 
 # @param rowCount - count of items in one row
@@ -35,19 +35,9 @@ def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int
 # @param currentBrandList - selected InlineKeyboardMarkup
 # @param selectedBrand - callback data from selected button
 def updateCatalogueList(currentBrandList: InlineKeyboardMarkup, selectedBrand: str) -> InlineKeyboardMarkup:
-    selectedBrandCount: int = 0
-    confirmButton: InlineKeyboardButton = None
-    confirmButtonIsSelected: bool = False
-
     for row in currentBrandList.inline_keyboard:
         for key in row:
-            # ignore confirm button
-            if CONFIRM_BUTTON_CALLBACK_QUERY_TYPE in key.callback_data:
-                if containEmoji(key.text, CONFIRM_BUTTON_EMOJI): confirmButtonIsSelected = True
-
-                confirmButton = key
-
-                continue
+            if CONFIRM_BUTTON_CALLBACK_QUERY_TYPE in key.callback_data: continue # ignore confirm button
 
             isSelected: bool = containEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI)
 
@@ -56,16 +46,5 @@ def updateCatalogueList(currentBrandList: InlineKeyboardMarkup, selectedBrand: s
                     key.text = toggleEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI, False)
                 else:
                     key.text = toggleEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI)
-                    selectedBrandCount += 1
-                
-                continue
-
-            if isSelected: selectedBrandCount += 1
-
-    if selectedBrandCount > 0 and not confirmButtonIsSelected:
-        toggleConfirmInlineButton(confirmButton, True)
-    
-    if selectedBrandCount == 0 and confirmButtonIsSelected:
-        toggleConfirmInlineButton(confirmButton, False)
 
     return currentBrandList
