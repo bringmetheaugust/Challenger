@@ -8,22 +8,29 @@ Telegram bot for *@carsurfing* project.
 
  - production bot [link](t.me/carsurfing_bot) or by *@carsurfing_bot* name
  - depelopment (test) bot [link](t.me/challenger_testing_bot) or by *@challenger_testing_bot* name
+  - *Heroku* [server url](https://challenger-telegram.herokuapp.com/)
 
 ***
 
 ### How can I deploy it?
 
- * run `bash deploy.sh` script to install *Python* virtual environment and all dependencies
- * run `source py_env/bin/activate` to activate virtual environment
- * run `python3 src/index.py` to run bot server
+ * ##### Localy
 
-##### Installed local packages:
+    - run `bash deploy.sh` script to install *Python* virtual environment and all dependencies
+    - run `source py_env/bin/activate` to activate virtual environment
+    - run `python3 src/index.py` to run bot server
+
+ * ##### On *Heroku*
+
+    - `git push heroku-telegram BRANCH:master`
+
+###### Installed local packages:
 
  * *aiogram v2.10.1*
  * *emoji v0.6.0*
  * *python-dotenv v0.14.0*
 
-##### Required global packages:
+###### Required global packages:
 
  * *Python v3+*
  * *pip3*

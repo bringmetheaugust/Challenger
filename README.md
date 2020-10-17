@@ -14,7 +14,7 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
     - join bot by [link](lol.lol) or find him by *@carsurfing_bot* name
     - type `/go` to start new search
 
-:pushpin:All link are for production.
+:pushpin:All link are only for production.
 :pushpin:Development links are on the same **Docs**.
 
 ***
@@ -77,13 +77,26 @@ August Luzanovsky, 2020
 ### WTF?
 
 <details>
-   <summary>📔How deployed mulltiapp <i>Heroku</i></summary>
+   <summary>📔How to deploy <i>Heroku</i> mulltiapp in monorepo</summary>
    <ul>
-      <li><code>heroku create challenger-telegram</code></li>
-      <li><code>git remote rename heroku heroku-telegram</code></li>
-      <li><code>heroku create challenger-server --buildpack https://github.com/heroku/heroku-buildpack-multi-procfile.git
-</code></li>
-      <li><code>git remote rename heroku heroku-server</code></li>
+      <li><b>build app</b>
+         <ul>
+            <li><code>heroku create APP_NAME --remote REMOTE_NAME</code></li>
+            <li><code>heroku buildpacks:add --app APP_NAME BUILDPACK</code></li>
+         </ul>
+      </li>
+      <li><b>add buildpack to manage multiapps in monorepo</b>
+         <ul>
+            <li><code>heroku buildpacks:add --app APP_NAME https://github.com/lstoll/heroku-buildpack-monorepo -i 1</code></li>
+            <li><code>heroku config:set --app APP_NAME APP_BASE=APP_ROOT_PATH</code></li>
+         </ul>
+      </li>
+      <li><b>add buildpack for saparate Procfile for each app</b>
+         <ul>
+            <li><code>heroku buildpacks:add --app APP_NAME heroku-community/multi-procfile -i 2</code></li>
+            <li><code>heroku config:set --app APP_NAME PROCFILE=PROCFILE_PATH</code></li>
+         </ul>
+      </li>
    </ul>
 </details>
 
