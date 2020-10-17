@@ -24,12 +24,6 @@ Telegram bot for *@carsurfing* project.
 
     - `git push heroku-telegram BRANCH:master`
 
-###### Installed local packages:
-
- * *aiogram v2.10.1*
- * *emoji v0.6.0*
- * *python-dotenv v0.14.0*
-
 ###### Required global packages:
 
  * *Python v3+*

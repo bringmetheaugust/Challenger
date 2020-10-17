@@ -1,3 +1,6 @@
+# common
+*.log
+
 # server
 /server/bin
 
@@ -5,8 +8,7 @@
 /telegram_bot/py_env
 
 # parser
-/parser/py_env
-/parser/__pycache__
+/parser/node_modules
 
 # python
 **/__pycache__

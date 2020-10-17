@@ -1,21 +1,28 @@
 ### What is this?   
+
 Sites parser for *@carsurfing* project.
-Site list:
- * [mobile.de](https://www.mobile.de/)
 
 ***
 
 ### How can I deploy it?
 
- * run `bash deploy_parser.sh` to install all dependencies
+##### Localy
 
- <!-- * run `yarn` to install all *NodeJS* dependencies
- * run `yarn dev` to run telegram bot server -->
+ * run `bash local_deploy.sh` to install all dependencies
+ * run `bash local_run.sh` to run parser server
 
-Required global packages:
- * *Python3*
- * *pip3*
+##### On *Heroku*
+ 
+ * `git push heroku-parser BRANCH:master`
+
+###### Required global packages:
+ * *NodeJS v10+*
+ * *yarn v1+*
     
-<!-- ***
+***
 
-### Docs -->
+### Docs
+
+##### Site list:
+
+ * [mobile.de](https://www.mobile.de/)
