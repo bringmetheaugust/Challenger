@@ -3,7 +3,6 @@
 
 # telegram bot
 /telegram_bot/py_env
-/telegram_bot/.env
 
 # parser
 /parser/py_env

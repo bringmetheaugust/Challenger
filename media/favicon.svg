@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 744.09448819 1052.3622047"
+   width="100mm"
+   height="130mm"
+   viewBox="0 0 744.09448819 1000.3622047"
    id="svg4836"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -112,6 +112,13 @@
        id="g5404">
       <g
          id="g5396">
+         <text
+            style="fill: red; font-size: 50px;"
+            x="100"
+            y="850"
+         >
+            @CARSURFING_TEST_BOT
+         </text>
         <ellipse
            style="opacity:1;fill:#000000;fill-opacity:1;stroke:#f3f3f3;stroke-width:3.34336019;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="ellipse4216"

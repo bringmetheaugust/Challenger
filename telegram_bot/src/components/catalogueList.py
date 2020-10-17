@@ -1,53 +1,50 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from emoji import emojize, demojize
+from aiogram.utils.callback_data import CallbackData
+import math
 
-from components.confirmButton import confirmInlineButton
-from constants import CONFIRM_BUTTON_TEXT, CATALOGUE_CHECKBOX_EMOJI
+from components.confirmInlineButton import confirmInlineButton
+from constants import CATALOGUE_CHECKBOX_EMOJI, CONFIRM_BUTTON_CALLBACK_QUERY_TYPE
+from utils.emoji import toggleEmoji, containEmoji
 
+# @param rowCount - count of items in one row
+def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int = 5) -> InlineKeyboardMarkup:
+    catalogue = InlineKeyboardMarkup(row_width = rowCount)
 
-def createCatalogueList(array: list, rowCount = 3) -> InlineKeyboardMarkup:
-    catalogue = InlineKeyboardMarkup(row_width = 3)
+    for row in range(0, int(math.ceil(len(array))), rowCount):
+        rowList: list = []
 
-    while True:
-        rowList = list()
-        rowCount = 1
+        for item in range(0, rowCount):
+            try:
+                currentItem: str = array[ row + item ]
+            except IndexError:
+                break
 
-        for i in range(1, 3):
-            item = array[rowCount * i]
-
-            itemButton = InlineKeyboardButton(text = item, callback_data = item.lower())
+            itemButton = InlineKeyboardButton(
+                text = currentItem,
+                callback_data = callbackObject.new(data = currentItem.lower())
+            )
+            
             rowList.append(itemButton)
 
-            rowCount += 1
-
-        catalogue.row(rowList)
-
-    # for item in array:
-    #     itemButton = InlineKeyboardButton(text = item, callback_data = item.lower())
-    #     catalogue.row(itemButton)
+        catalogue.row(*rowList)
 
     catalogue.add(confirmInlineButton('brand'))
 
     return catalogue
 
-def updateCatalogueList(currentBrandList, selectedBrand) -> InlineKeyboardMarkup:
-    # selectedBrandCount: int = 0
-
+# @param currentBrandList - selected InlineKeyboardMarkup
+# @param selectedBrand - callback data from selected button
+def updateCatalogueList(currentBrandList: InlineKeyboardMarkup, selectedBrand: str) -> InlineKeyboardMarkup:
     for row in currentBrandList.inline_keyboard:
         for key in row:
-            if key.text == CONFIRM_BUTTON_TEXT: continue # ignore confirm button
+            if CONFIRM_BUTTON_CALLBACK_QUERY_TYPE in key.callback_data: continue # ignore confirm button
 
-            isSelected: bool = CATALOGUE_CHECKBOX_EMOJI in demojize(key.text)
+            isSelected: bool = containEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI)
 
             if selectedBrand == key.callback_data:
                 if isSelected:
-                    key.text = demojize(key.text).replace(CATALOGUE_CHECKBOX_EMOJI, '')
+                    key.text = toggleEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI, False)
                 else:
-                    key.text = emojize(f'{CATALOGUE_CHECKBOX_EMOJI} {key.text}')
-                    # selectedBrandCount += 1
+                    key.text = toggleEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI)
 
-                continue
-
-            # if isSelected: selectedBrandCount += 1
-            
     return currentBrandList
