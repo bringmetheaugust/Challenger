@@ -14,16 +14,17 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
     - join bot by [link](lol.lol) or find him by *@carsurfing_bot* name
     - type `/go` to start new search
 
-:pushpin:All link are only for production.
+:pushpin:All link are only for production.    
 :pushpin:Development links are on the same **Docs**.
 
 ***
 
 ### How can I deploy it?
 
- * ##### Localy (each module separately)
+ * ##### Localy
 
-    All deploying steps for each module descibed in the same **Docs**.
+    Run `bash deploy_all.sh` or deploying each of modules separately.    
+    All deploying steps descibed in the same **Docs**.
 
  * ##### Localy by Docker🐋
 
@@ -32,17 +33,18 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
  * ##### Remotely by Heroku
 
-    - 
+    Run `bash heroku_multiapp_deploy.sh` or deploy each modules separately.    
+    All deploying steps for each module descibed in the same **Docs**
     
 
-:pushpin:By default, each module runs on test domains. All test domains described in the same **Docs**.
+:pushpin:By default, each module runs on test domains. All test domains described in the same **Docs**.    
 :pushpin:Some domains (bot tokens), which described on `.env` files, are hidden by `.gitignore` for our safity. Dont forget to add them before deploying.
 
 ***
 
 ### Docs
 
-##### Main docs
+#### Main docs
 
    - [main server](./server/README.md)
       * [api docs](./server/API_DOC.md)
@@ -53,15 +55,15 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
    - [site parser](./parser/README.md)
 
-##### Heroku data
+#### Heroku data
 
-   * **Telegram**🏄🏻
+   * ##### Telegram🏄🏻
       - url: <a>https://challenger-telegram.herokuapp.com</a></li>
       - git remote server name: <code>heroku-telegram</code></li>
       - git remote: <code>https://git.heroku.com/challenger-telegram.git</code></li>
       - *Heroku* name: <code>challenger-telegram</code></li>
 
-    * **Server**👑
+   * ##### Server👑
       - url: <a>https://challenger-server.herokuapp.com</a></li>
       - git remote server name: <code>heroku-server</code></li>
       - git remote <code>https://git.heroku.com/challenger-server.git</code>
