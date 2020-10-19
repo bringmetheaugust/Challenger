@@ -1,25 +1,26 @@
-### What is this?   
+# Challenger aka @carsurfing
+
+![license](https://img.shields.io/github/license/bringmetheaugust/Yasya_and_friends) ![releaze](https://img.shields.io/github/v/release/bringmetheaugust/Challenger) ![realise date](https://img.shields.io/github/release-date/bringmetheaugust/Challenger) ![issues](https://img.shields.io/github/issues-raw/bringmetheaugust/Challenger) ![PR](https://img.shields.io/github/issues-pr-raw/bringmetheaugust/Challenger)
+
+## What is this?
+
 Bots for searching cars on all automobile commerce platforms.
 After a few simple staps, bot subscribes Your on search and sends to You every new car models wich You have chosen.
 
-***
+## How can I join it?
 
-### How can I join it?
-
- * ##### Telegram🏄🏻
+ * ![Telegram](https://img.shields.io/badge/-telegram-000?&logo=telegram)
     - join bot by [link](t.me/carsurfing_bot) or find him by *@carsurfing_bot* name
     - type `/start` for running the bot
 
- * ##### Viber💩
+ * ![Viber](https://img.shields.io/badge/-Viber-000?&logo=viber)
     - join bot by [link](lol.lol) or find him by *@carsurfing_bot* name
     - type `/go` to start new search
 
 :pushpin:All link are only for production.    
 :pushpin:Development links are on the same **Docs**.
 
-***
-
-### How can I deploy it?
+## How can I deploy this?
 
  * ##### Localy
 
@@ -40,9 +41,7 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 :pushpin:By default, each module runs on test domains. All test domains described in the same **Docs**.    
 :pushpin:Some domains (bot tokens), which described on `.env` files, are hidden by `.gitignore` for our safity. Dont forget to add them before deploying.
 
-***
-
-### Docs
+## Docs
 
 #### Main docs
 
@@ -57,26 +56,23 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
 #### Heroku data
 
-   * ##### Telegram🏄🏻
+   * ![Telegram](https://img.shields.io/badge/-telegram-000?&logo=telegram)
       - url: <a>https://challenger-telegram.herokuapp.com</a></li>
       - git remote server name: <code>heroku-telegram</code></li>
       - git remote: <code>https://git.heroku.com/challenger-telegram.git</code></li>
       - *Heroku* name: <code>challenger-telegram</code></li>
 
-   * ##### Server👑
+   * ![server](https://img.shields.io/badge/-server-000?&logo=node.js)
       - url: <a>https://challenger-server.herokuapp.com</a></li>
       - git remote server name: <code>heroku-server</code></li>
       - git remote <code>https://git.heroku.com/challenger-server.git</code>
       - *Heroku* name: <code>challenger-server</code></li>
 
-***
+## Who made this?
 
-### Who made this?
-August Luzanovsky, 2020
+August Luzanovsky, 2020 [![GitHub](https://img.shields.io/badge/-GitHub-000?&logo=github)](https://github.com/bringmetheaugust)
 
-***
-
-### WTF?
+## WTF?
 
 <details>
    <summary>📔How to deploy <i>Heroku</i> mulltiapp in monorepo</summary>
@@ -103,3 +99,4 @@ August Luzanovsky, 2020
 </details>
 
 Be my Challenger!
+🏎🚗🚙🚌🚛
