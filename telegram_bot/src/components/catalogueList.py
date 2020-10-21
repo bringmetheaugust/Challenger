@@ -3,11 +3,11 @@ from aiogram.utils.callback_data import CallbackData
 import math
 
 from components.confirmInlineButton import confirmInlineButton
-from constants import CATALOGUE_CHECKBOX_EMOJI, CONFIRM_BUTTON_CALLBACK_QUERY_TYPE
-from utils.emoji import toggleEmoji, containEmoji
+from state import FormItem
 
+# @param array - list of FormItem
 # @param rowCount - count of items in one row
-def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int = 5) -> InlineKeyboardMarkup:
+def catalogueList(array: list, rowCount: int = 5) -> InlineKeyboardMarkup:
     catalogue = InlineKeyboardMarkup(row_width = rowCount)
 
     for row in range(0, int(math.ceil(len(array))), rowCount):
@@ -15,13 +15,15 @@ def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int
 
         for item in range(0, rowCount):
             try:
-                currentItem: str = array[ row + item ]
+                currentItem: FormItem = array[ row + item ]
             except IndexError:
                 break
 
+            itemText = currentItem.data
+
             itemButton = InlineKeyboardButton(
-                text = currentItem,
-                callback_data = callbackObject.new(data = currentItem.lower())
+                text = f'☑️{itemText}' if currentItem.isSelected else itemText,
+                callback_data = itemText
             )
             
             rowList.append(itemButton)
@@ -31,20 +33,3 @@ def createCatalogueList(array: list, callbackObject: CallbackData, rowCount: int
     catalogue.add(confirmInlineButton('brand'))
 
     return catalogue
-
-# @param currentBrandList - selected InlineKeyboardMarkup
-# @param selectedBrand - callback data from selected button
-def updateCatalogueList(currentBrandList: InlineKeyboardMarkup, selectedBrand: str) -> InlineKeyboardMarkup:
-    for row in currentBrandList.inline_keyboard:
-        for key in row:
-            if CONFIRM_BUTTON_CALLBACK_QUERY_TYPE in key.callback_data: continue # ignore confirm button
-
-            isSelected: bool = containEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI)
-
-            if selectedBrand == key.callback_data:
-                if isSelected:
-                    key.text = toggleEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI, False)
-                else:
-                    key.text = toggleEmoji(key.text, CATALOGUE_CHECKBOX_EMOJI)
-
-    return currentBrandList

@@ -9,6 +9,6 @@ HELP_MESSAGE: str = '\
 All bot\'s info You can find in the bot description.\
 '
 
-@dp.message_handler(commands = ['help'])
+@dp.message_handler(commands = 'help')
 async def help(message: Message):
     await message.answer(text = HELP_MESSAGE, parse_mode = ParseMode.MARKDOWN)
