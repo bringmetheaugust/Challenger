@@ -6,6 +6,8 @@ from bot import dp, bot
 from state import FormState, FormItem
 from components.catalogueList import catalogueList
 
+years: list = ['2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008']
+
 @dp.callback_query_handler(state = FormState.withBrands)
 async def selectBrand(callback: CallbackQuery, state: FSMContext):
     currentData = await state.get_data()
@@ -27,14 +29,9 @@ async def selectBrand(callback: CallbackQuery, state: FSMContext):
 
 @dp.errors_handler(exception = exceptions.MessageNotModified)
 async def confirmButton(update, err):
-    _, confirmType = update.callback_query.data.split(':')
-
-    if confirmType == 'brand':
-        await FormState.withYears.set()
-    else:
-        await bot.send_message(
-            chat_id = update.callback_query.message.chat.id,
-            text = '😯Seems, You didn\'t choose anything..'
-        )
+    await bot.send_message(
+        chat_id = update.callback_query.message.chat.id,
+        text = '😯Seems, You didn\'t choose anything..'
+    )
     
     return True
