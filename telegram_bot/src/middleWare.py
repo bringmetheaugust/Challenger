@@ -16,14 +16,18 @@ class HandlerMiddleware(BaseMiddleware):
             state = self.manager.dispatcher.current_state()
             currentState = await state.get_data()
 
+            # check empty category lists
             for category in currentState:
                 if (not any(item.isSelected for item in currentState[category])):
                     await callback.answer('😯Seems, You didn\'t choose anything..')
                     raise CancelHandler()
+                else: # ! create logic to set next category step
+                    await callback.answer('😋Ok. You select cars!!')
+                    raise CancelHandler()
 
     # update catalogueList
     async def on_post_process_callback_query(self, callback: CallbackQuery, results, data: dict):
-        updatedList = results[0]
+        updatedList, *_ = results
         
         await bot.edit_message_reply_markup(
             chat_id = callback.from_user.id,
