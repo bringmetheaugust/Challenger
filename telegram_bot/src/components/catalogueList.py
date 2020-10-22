@@ -30,6 +30,14 @@ def catalogueList(array: list, rowCount: int = 5) -> InlineKeyboardMarkup:
 
         catalogue.row(*rowList)
 
-    catalogue.add(confirmInlineButton('brand'))
+    catalogue.add(confirmInlineButton('brand')) # ! only for brands list
 
     return catalogue
+
+def updateStateDataList(categoryList: list, selectedItem: str) -> list:
+    updatedList = list(map(
+        lambda item: FormItem(item.data, not item.isSelected) if selectedItem == item.data else item,
+        categoryList
+    ))
+
+    return updatedList

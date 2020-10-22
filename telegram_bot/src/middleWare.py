@@ -1,9 +1,9 @@
 from aiogram.dispatcher.middlewares import BaseMiddleware
 from aiogram.dispatcher.handler import CancelHandler
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, ParseMode
 
 from bot import bot
-from state import FormState
+from state import FormState, FormItem
 from components.catalogueList import catalogueList
 
 class HandlerMiddleware(BaseMiddleware):
@@ -14,15 +14,27 @@ class HandlerMiddleware(BaseMiddleware):
     async def on_pre_process_callback_query(self, callback: CallbackQuery, data: dict):
         if ('confirm' in callback.data):
             state = self.manager.dispatcher.current_state()
-            currentState = await state.get_data()
-
-            # check empty category lists
-            for category in currentState:
-                if (not any(item.isSelected for item in currentState[category])):
-                    await callback.answer('😯Seems, You didn\'t choose anything..')
+            currentStateData = await state.get_data()
+            
+            for category in currentStateData:
+                # check empty category lists
+                if (not any(item.isSelected for item in currentStateData[category])):
+                    await callback.answer(
+                        text = '☹️Seems, You didn\'t choose anything...\n🥺Please, select at least one car brand.',
+                        show_alert = True
+                    )
                     raise CancelHandler()
-                else: # ! create logic to set next category step
-                    await callback.answer('😋Ok. You select cars!!')
+
+                # create new list & set State steps
+                else:
+                    if ('brand' in callback.data): # ! add FormState.withBrand checking
+                        await FormState.withYears.set()
+                        await callback.bot.send_message(
+                            text = 'Type 1st registration year (single <b>2007</b> or range <b>2001-2009</b> e.g)🚐',
+                            chat_id = callback.message.chat.id,
+                            parse_mode = ParseMode.HTML
+                        )
+
                     raise CancelHandler()
 
     # update catalogueList
