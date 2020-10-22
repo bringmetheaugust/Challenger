@@ -1,0 +1,6 @@
+{
+  "description": "for restarting server after scripts updated",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
