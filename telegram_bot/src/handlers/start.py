@@ -13,10 +13,8 @@ async def cmd_start(message: Message, state: FSMContext):
     await FormState.withBrands.set()
 
     mapedBrandList = list(map(lambda brand: FormItem(brand), carList))
-    mapedYearList = list(map(lambda year: FormItem(year), carList))
 
     await state.update_data(brands = mapedBrandList)
-    await state.update_data(years = mapedYearList)
     await message.answer(
         'Select car brands🚐🚗🚙',
         reply_markup = catalogueList(mapedBrandList)
