@@ -30,7 +30,6 @@ async def confirmBrand(callback: CallbackQuery, state: FSMContext) -> list:
 
     return None # cancel post middleware
 
-
 @dp.message_handler(state = FormState.withYears)
 async def selectYears(message: Message, state: FSMContext):
     messageText = message.text

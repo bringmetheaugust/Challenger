@@ -11,13 +11,14 @@ class HandlerMiddleware(BaseMiddleware):
     def __init__(self):
         super(HandlerMiddleware, self).__init__()
 
-    # check confirm button
+    # check confirm button with empty selected items
     async def on_pre_process_callback_query(self, callback: CallbackQuery, data: dict):
         if (CONFIRM_BUTTON_CALLBACK_QUERY_TYPE in callback.data):
             state = self.manager.dispatcher.current_state()
             currentStateData = await state.get_data()
             
             # check empty category lists
+            # TODO: state data check all data as list. need to exclude non-list items
             for category in currentStateData:
                 if (not any(item.isSelected for item in currentStateData[category])):
                     await callback.bot.send_message(
@@ -25,6 +26,7 @@ class HandlerMiddleware(BaseMiddleware):
                         chat_id = callback.message.chat.id,
                         parse_mode = ParseMode.HTML
                     )
+                    
                     raise CancelHandler()
 
     # update catalogueList
