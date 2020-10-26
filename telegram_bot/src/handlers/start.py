@@ -4,8 +4,7 @@ from aiogram.dispatcher import FSMContext
 from bot import dp
 from state import FormState, FormItem
 from components.catalogueList import catalogueList
-
-carList: list = ['BMW', 'Ford', 'Audi', 'Dodge', 'Reno', 'Volvo', 'Mazda', 'Porshe', 'Lamborgini', 'Lada', 'Opel', 'Chevrole', 'VolzWagen', 'Kia']
+from utils.fetch import fetch
 
 @dp.message_handler(commands = 'start', state = '*')
 async def cmd_start(message: Message, state: FSMContext):
@@ -13,7 +12,9 @@ async def cmd_start(message: Message, state: FSMContext):
     await state.reset_state()
     await FormState.withBrands.set()
 
-    mapedBrandList = list(map(lambda brand: FormItem(brand), carList))
+    res: list = fetch('api/params/brands')
+
+    mapedBrandList = list(map(lambda brand: FormItem(brand), res))
 
     await state.update_data(brands = mapedBrandList)
     await message.answer(

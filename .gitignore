@@ -1,7 +1,9 @@
 # common
 *.log
+**/__pycache__
 
 # server
+/server/py_env
 
 # telegram bot
 /telegram_bot/py_env
@@ -9,6 +11,3 @@
 
 # parser
 /parser/node_modules
-
-# python
-**/__pycache__
