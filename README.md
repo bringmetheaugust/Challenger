@@ -4,7 +4,7 @@
 
 ## What is this?
 
-Bots for searching cars on all automobile commerce platforms.
+Bots for searching cars on all ukrainians automobile commerce platforms.
 After a few simple staps, bot subscribes Your on search and sends to You every new car models wich You have chosen.
 
 ## How can I join it?

@@ -25,7 +25,7 @@ async def selectBrand(callback: CallbackQuery, state: FSMContext):
 async def confirmBrand(callback: CallbackQuery, state: FSMContext):
     await FormState.withYears.set()
     await callback.bot.send_message(
-        text = 'Great!🚐\nType 1st registration year (single <b>2007</b> or range <b>2001-2009</b> e.g).',
+        text = 'Введiть дату першoї реєстрацiї авто🚐.\nНаприклад, точну <b>2007</b> або перiод <b>2001-2009</b>.',
         chat_id = callback.message.chat.id,
         parse_mode = ParseMode.HTML
     )
@@ -46,12 +46,13 @@ async def selectYears(message: Message, state: FSMContext):
 
         await state.update_data(price = mapedPriceList)
         await message.answer(
-            'Select price (in USA dollar)💵.',
-            reply_markup = catalogueList(mapedPriceList, CONFIRM_BUTTON_CALLBACK_PRICE_DATA)
+            'Оберiть цiновий дiапазон (в долларах <b>США</b>)💵',
+            reply_markup = catalogueList(mapedPriceList, CONFIRM_BUTTON_CALLBACK_PRICE_DATA),
+            parse_mode = ParseMode.HTML
         )
     else:
         await message.answer(
-            text ='🤕Seems, You have typed invalid year\'s data.\n🧐Correct format is single year (<b>2007</b> e.g) or range (<b>2001-2007</b> e.g)',
+            text ='Здається, що Ви ввели невiрну дату🤕.\nКорректний формат має бути точний рiк (наприклад, <b>2007</b>) або перiод (<b>2001-2007</b>)🧐',
             parse_mode = ParseMode.HTML
         )
 

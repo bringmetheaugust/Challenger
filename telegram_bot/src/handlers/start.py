@@ -19,6 +19,6 @@ async def cmd_start(message: Message, state: FSMContext):
 
     await state.update_data(brands = mapedBrandList)
     await message.answer(
-        'Select car brands🚙',
+        'Поїхали! Оберiть марку авто🚙',
         reply_markup = catalogueList(mapedBrandList, CONFIRM_BUTTON_CALLBACK_BRAND_DATA)
     )

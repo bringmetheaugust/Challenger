@@ -23,7 +23,7 @@ class HandlerMiddleware(BaseMiddleware):
 
                 if (not any(item.isSelected for item in currentStateData[category])):
                     await callback.bot.send_message(
-                        text = '☹️Seems, You didn\'t choose anything...\n🥺Please, select at least one car brand.',
+                        text = 'Здається, Ви нiчого не обрали☹️...\nБудь ласка, оберiть, як мiнiмум, один iз варiантiв🥺.',
                         chat_id = callback.message.chat.id,
                         parse_mode = ParseMode.HTML
                     )

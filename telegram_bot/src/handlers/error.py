@@ -8,7 +8,7 @@ from utils.errorReport import errorReport
 async def error(update: CallbackQuery, err):
     await bot.send_message(
         chat_id = update.message.chat.id,
-        text = '😬Oops... Seems, we have an error.\n🛠Please, try again later. We are working on this trouble.'
+        text = 'Упс😬... Трапилось щось жахливе...\nБудь ласка, повторiть спробу трiшки пiзнiше🧑🏻‍💻.\nМы вже опрацьовуемо цю помилку🛠.'
     )
 
     errorReport(err)
