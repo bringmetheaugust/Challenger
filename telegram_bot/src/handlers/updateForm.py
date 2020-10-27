@@ -14,7 +14,7 @@ noConfirmButton = lambda callback: not CONFIRM_BUTTON_CALLBACK_QUERY_TYPE in cal
 isConfirmButton = lambda callback: CONFIRM_BUTTON_CALLBACK_QUERY_TYPE in callback.data
 
 @dp.callback_query_handler(noConfirmButton, state = FormState.withBrands)
-async def selectBrand(callback: CallbackQuery, state: FSMContext) -> list:
+async def selectBrand(callback: CallbackQuery, state: FSMContext):
     currentState = await state.get_data()
     updatedList = updateStateDataList(currentState['brands'], callback.data)
     await state.update_data(brands = updatedList)
@@ -22,7 +22,7 @@ async def selectBrand(callback: CallbackQuery, state: FSMContext) -> list:
     return updatedList, CONFIRM_BUTTON_CALLBACK_BRAND_DATA
 
 @dp.callback_query_handler(isConfirmButton, state = FormState.withBrands)
-async def confirmBrand(callback: CallbackQuery, state: FSMContext) -> list:
+async def confirmBrand(callback: CallbackQuery, state: FSMContext):
     await FormState.withYears.set()
     await callback.bot.send_message(
         text = 'Great!🚐\nType 1st registration year (single <b>2007</b> or range <b>2001-2009</b> e.g).',
@@ -62,3 +62,14 @@ async def selectPrice(callback: CallbackQuery, state: FSMContext):
     await state.update_data(price = updatedList)
 
     return updatedList, CONFIRM_BUTTON_CALLBACK_PRICE_DATA
+
+@dp.callback_query_handler(isConfirmButton, state = FormState.withPrice)
+async def confirmPrice(callback: CallbackQuery, state: FSMContext):
+    await FormState.withPrice.set()
+    await callback.bot.send_message(
+        text = 'ПОКА ШО ВСЁ..',
+        chat_id = callback.message.chat.id,
+        parse_mode = ParseMode.HTML
+    )
+
+    return None # cancel post middleware

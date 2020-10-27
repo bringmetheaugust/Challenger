@@ -18,8 +18,9 @@ class HandlerMiddleware(BaseMiddleware):
             currentStateData = await state.get_data()
             
             # check empty category lists
-            # TODO: state data check all data as list. need to exclude non-list items
             for category in currentStateData:
+                if (category == 'years'): continue
+
                 if (not any(item.isSelected for item in currentStateData[category])):
                     await callback.bot.send_message(
                         text = '☹️Seems, You didn\'t choose anything...\n🥺Please, select at least one car brand.',
@@ -29,9 +30,8 @@ class HandlerMiddleware(BaseMiddleware):
                     
                     raise CancelHandler()
 
-    # @param result:
-    #   updatedList: updated state data list
-    #   confirmButtonCallbackData: callback query data
+    # update catalogue lists
+    # @param result: [updatedList: updated state data list, confirmButtonCallbackData: callback query data]
     async def on_post_process_callback_query(self, callback: CallbackQuery, results, data: dict):
         try:
             if (not bool(results)): return
