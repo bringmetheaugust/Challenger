@@ -29,17 +29,22 @@ class HandlerMiddleware(BaseMiddleware):
                     
                     raise CancelHandler()
 
-    # update catalogueList
+    # @param result:
+    #   updatedList: updated state data list
+    #   confirmButtonCallbackData: callback query data
     async def on_post_process_callback_query(self, callback: CallbackQuery, results, data: dict):
-        if (not bool(results)): return
+        try:
+            if (not bool(results)): return
 
-        updatedList, *_ = results
-        
-        await bot.edit_message_reply_markup(
-            chat_id = callback.from_user.id,
-            message_id = callback.message.message_id,
-            reply_markup = catalogueList(updatedList)
-        )
+            [updatedList, confirmButtonCallbackData], *_ = results
+            
+            await bot.edit_message_reply_markup(
+                chat_id = callback.from_user.id,
+                message_id = callback.message.message_id,
+                reply_markup = catalogueList(updatedList, confirmButtonCallbackData)
+            )
+        except:
+            return
 
 # all middleware types list
 # https://github.com/aiogram/aiogram/blob/22094eb477711e644924eaeb2424c8cef20e637a/aiogram/contrib/middlewares/logging.py
