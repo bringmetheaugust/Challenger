@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  challenger_telegram:
+    build: ./telegram_bot
+    restart: unless-stopped
+    ports:
+      - '2303:2303'
+    volumes:
+      - ./telegram_bot/src:/app/src
+    depends_on:
+      - challenger_server
+    # working_dir: ./app
+
+  # mongo:
+  #   build: ./mongo
+  #   restart: unless-stopped
+  #   ports:
+  #       - '27017:27017'
+  #   volumes:
+  #     - ./mongo/db:/data/db
+  #   # command: mongod
