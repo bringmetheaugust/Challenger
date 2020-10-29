@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from aiogram import executor
+print("START")
 
 load_dotenv()
 
@@ -8,6 +9,5 @@ import state
 import handlers
 from middleWare import HandlerMiddleware
 
-if __name__ == "__main__":
-    dp.middleware.setup(HandlerMiddleware())
-    executor.start_polling(dp, skip_updates = True)
+dp.middleware.setup(HandlerMiddleware())
+executor.start_polling(dp, skip_updates = True)

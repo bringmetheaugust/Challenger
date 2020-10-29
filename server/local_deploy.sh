@@ -1,6 +1,6 @@
 #!/bin/sh
 
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
-php composer-setup.php --install-dir=bin --filename=composer &&
-rm composer-setup.php &&
-php bin/composer install
+python3 -m venv py_env &&
+source py_env/bin/activate &&
+# pip3 install -r requirements.txt &&
+deactivate

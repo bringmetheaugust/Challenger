@@ -1,0 +1,8 @@
+Dockerfile
+.dockerignore
+API_DOC.md
+API_RESPONCE_DOC.md
+local_deploy.sh
+local_run.sh
+Procfile
+README.md

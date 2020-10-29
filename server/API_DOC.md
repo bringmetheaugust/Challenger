@@ -1,132 +1,51 @@
-<!-- ## RestAPI list
+# REST API doc
+ 
+ * ##### 👱user CRUD
+    - [new search](#new_search)
 
- * ##### auth
-    - [authorization](#authorization)
-    - [login](#login)
-    - [registration](#registration)
-    - [logout](#logout)
+ * ###### 🗜search params
 
- * ###### diary
-
-    - [get diary](#getdiary)
-    - [set diary](#setdiary)
+    - [brand list](#brands)
+    <!-- - [set diary](#setdiary)
     - [update diary](#updatediary)
-    - [delete diary](#deletediary)
+    - [delete diary](#deletediary) -->
+
+ * ###### ⛔️reports
+
+    - [error report](#error_report)
 
 ***
 
-<a name="authorization"></a>
+## 👱User
 
-#### authorization (GET `api/auth`)
+<a name="new_search"></a>
 
-###### req (only cookies)
+#### new search (POST /api/user/start)
 
-###### res
+ * req
 
-    _id: Number
-    nickname: String
+        body: dict
 
-***
+ * res
 
-<a name="login"></a>
+        status
 
-#### login (POST `api/auth/login`)
+## 🗜Search params
 
-###### req
+<a name="brands"></a>
 
-    nickname: String
-    password: String
-    
-###### res
+#### brand list (GET `api/params/brands`)
 
-    body: {
-      _id: Number
-      nickname: String
-    }
+ * ##### res
 
-    // or
+        list
 
-    message: String
+## ⛔️Reports
 
-***
+<a name="error_report"></a>
 
-<a name="registration"></a>
+#### error reports (POST `api/report/error`)
 
-#### registration (POST `api/auth/registration`)
+ * ##### query params
 
-###### req
-
-    nickname: String
-    password: String
-    email: String
-    
-###### res
-
-    body: {
-      _id: Number
-      nickname: String
-    }
-
-    // or
-
-    message: String
-
-***
-
-<a name="logout"></a>
-
-#### logout (GET `api/auth/logout`)
-
-###### req (only cookies)
-
-###### res (none)
-
-***
-
-<a name="getdiary"></a>
-
-#### get diary (GET `api/diary`)
-
-###### req(only cookies)
-
-###### res
-
-    body: Array<INote>
-
-***
-
-<a name="setdiary"></a>
-
-#### set diary (POST `api/diary`)
-
-###### req
-
-    title: String
-    data: String
-
-###### res
-
-    body: <INote>
-
-***
-
-<a name="updatediary"></a>
-
-#### update diary (PATCH `api/diary`)
-
-###### req
-    <INote>
-
-###### res (only status)
-
-***
-
-<a name="deletediary"></a>
-
-#### delete diary (DELETE `api/diary`)
-
-###### req
-
-###### res
-
-*** -->
+        source: server type

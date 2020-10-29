@@ -7,7 +7,7 @@ from state import FormItem
 
 # @param array - list of FormItem
 # @param rowCount - count of items in one row
-def catalogueList(array: list, rowCount: int = 5) -> InlineKeyboardMarkup:
+def catalogueList(array: list, confirmButtonCallbackType: str, rowCount: int = 5) -> InlineKeyboardMarkup:
     catalogue = InlineKeyboardMarkup(row_width = rowCount)
 
     for row in range(0, int(math.ceil(len(array))), rowCount):
@@ -19,24 +19,24 @@ def catalogueList(array: list, rowCount: int = 5) -> InlineKeyboardMarkup:
             except IndexError:
                 break
 
-            itemText = currentItem.data
+            itemText = currentItem.data['title']
 
             itemButton = InlineKeyboardButton(
                 text = f'☑️{itemText}' if currentItem.isSelected else itemText,
-                callback_data = itemText
+                callback_data = currentItem.data['id']
             )
             
             rowList.append(itemButton)
 
         catalogue.row(*rowList)
 
-    catalogue.add(confirmInlineButton('brand')) # ! only for brands list
+    catalogue.add(confirmInlineButton(confirmButtonCallbackType))
 
     return catalogue
 
 def updateStateDataList(categoryList: list, selectedItem: str) -> list:
     updatedList = list(map(
-        lambda item: FormItem(item.data, not item.isSelected) if selectedItem == item.data else item,
+        lambda item: FormItem(item.data, not item.isSelected) if selectedItem == str(item.data['id']) else item,
         categoryList
     ))
 

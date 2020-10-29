@@ -18,28 +18,33 @@ class HandlerMiddleware(BaseMiddleware):
             currentStateData = await state.get_data()
             
             # check empty category lists
-            # TODO: state data check all data as list. need to exclude non-list items
             for category in currentStateData:
+                if (category == 'years'): continue
+
                 if (not any(item.isSelected for item in currentStateData[category])):
                     await callback.bot.send_message(
-                        text = '☹️Seems, You didn\'t choose anything...\n🥺Please, select at least one car brand.',
+                        text = 'Здається, Ви нiчого не обрали☹️...\nБудь ласка, оберiть, як мiнiмум, один iз варiантiв🥺.',
                         chat_id = callback.message.chat.id,
                         parse_mode = ParseMode.HTML
                     )
                     
                     raise CancelHandler()
 
-    # update catalogueList
+    # update catalogue lists
+    # @param result: [updatedList: updated state data list, confirmButtonCallbackData: callback query data]
     async def on_post_process_callback_query(self, callback: CallbackQuery, results, data: dict):
-        if (not bool(results)): return
+        try:
+            if (not bool(results)): return
 
-        updatedList, *_ = results
-        
-        await bot.edit_message_reply_markup(
-            chat_id = callback.from_user.id,
-            message_id = callback.message.message_id,
-            reply_markup = catalogueList(updatedList)
-        )
+            [updatedList, confirmButtonCallbackData], *_ = results
+            
+            await bot.edit_message_reply_markup(
+                chat_id = callback.from_user.id,
+                message_id = callback.message.message_id,
+                reply_markup = catalogueList(updatedList, confirmButtonCallbackData)
+            )
+        except:
+            return
 
 # all middleware types list
 # https://github.com/aiogram/aiogram/blob/22094eb477711e644924eaeb2424c8cef20e637a/aiogram/contrib/middlewares/logging.py
