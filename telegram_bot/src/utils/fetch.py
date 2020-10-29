@@ -3,6 +3,7 @@ import requests, json
 from aiogram.dispatcher.handler import CancelHandler
 
 MAIN_SERVER_URL: str = os.getenv('MAIN_SERVER_URL')
+print(MAIN_SERVER_URL)
 
 def fetch(url: str) -> list:
     try:

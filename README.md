@@ -24,18 +24,18 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
  * ##### Localy
 
-    Run `bash deploy_all.sh` or deploying each of modules separately.    
-    All deploying steps descibed in the same **Docs**.
+   Install all modules separately.    
+   All deployment **Docs** are in the same modules.
 
  * ##### Localy by Docker🐋
 
-    - run `bash deploy_by_docker.sh` to deploy containers
-    - run `bash run_by_docker.sh` to run containers
+    - run `docker-compose up --no-start` to deploy containers
+    - run `docker-compose start` to run containers
 
  * ##### Remotely by Heroku
 
     Run `bash heroku_multiapp_deploy.sh` or deploy each modules separately.    
-    All deploying steps for each module descibed in the same **Docs**
+    All deploying steps for each module descibed in the same **Docs**.
     
 
 :pushpin:By default, each module runs on test domains. All test domains described in the same **Docs**.    

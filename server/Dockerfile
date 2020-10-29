@@ -1,16 +1,16 @@
-FROM node:13.6
+FROM python:3.9
 
 WORKDIR /app
 
-COPY package.json ./
-COPY yarn.lock ./
+COPY requirements.txt ./
 
-RUN yarn
+RUN pip3 install -r requirements.txt
+ENV FLASK_APP=src/index.py
 
 COPY . .
 
-EXPOSE 2101
+EXPOSE 2300
 
 VOLUME /app
 
-CMD ["yarn", "dev"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=2300"]
