@@ -6,3 +6,5 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 bot = Bot(token = os.getenv('CHALLENGER_TESTING_TOKEN'))
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage = storage)
+
+logging.basicConfig(level = logging.INFO)

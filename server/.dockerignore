@@ -1,8 +1,9 @@
 Dockerfile
 .dockerignore
+py_env
 API_DOC.md
 API_RESPONCE_DOC.md
-local_deploy.sh
-local_run.sh
+deploy_local.sh
+run_local.sh
 Procfile
 README.md

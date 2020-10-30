@@ -30,7 +30,7 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
  * ##### Localy by Docker🐋
 
     - run `docker-compose up --no-start` to deploy containers
-    - run `docker-compose start` to run containers
+    - run `docker-compose start` to up containers
 
  * ##### Remotely by Heroku
 

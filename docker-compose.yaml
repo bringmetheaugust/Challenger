@@ -7,8 +7,8 @@ services:
     restart: unless-stopped
     # ports:
     #   - '2300:2300'
-    # volumes:
-    #   - ./mongo/db:/data/db
+    volumes:
+      - ./server/src:/app/src
     # depends_on:
     #   - db
 
@@ -25,7 +25,5 @@ services:
     restart: unless-stopped
     # ports:
     #   - '2305:2305'
-    # volumes:
-    #   - ./telegram_bot/src:/app/src
-    depends_on:
-      - server
+    volumes:
+      - ./telegram_bot/src:/app/src
