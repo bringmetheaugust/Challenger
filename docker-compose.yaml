@@ -12,12 +12,13 @@ services:
     # depends_on:
     #   - db
 
-  # db:
-  #   image: postgres
-  #   container_name: challenger_db
-  #   restart: unless-stopped
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
+  db:
+    container_name: challenger_db
+    # image: postgres
+    build: ./db
+    restart: unless-stopped
+    # volumes:
+    #   - pgdata:/var/lib/postgresql/data
 
   telegram:
     container_name: challenger_telegram
