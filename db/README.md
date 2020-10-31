@@ -2,20 +2,15 @@
 
 *Postgresql* data base for *@carsurfing* project.
 
-## How can I join it?
-
- * By Docker🐋
-    
-    * run `psql -U postgres` inside *Postgresql* container
-
-## How can I deploy it?
-
- * ##### On *Heroku*
-
-    - `git push heroku-db BRANCH:master`
-
-
 ## Docs
 
-Root user: **postgres**.    
-Root pass: **123**.
+##### Tools
+
+ * `bash dump_deploy.sh` to restore dump
+ * `bash dump_pull.sh` to refresh dump
+
+##### DB params
+
+ * root user: **postgres**
+ * root pass: **123**
+ * exposed local http: **localhost:5432**
