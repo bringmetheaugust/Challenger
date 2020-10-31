@@ -11,8 +11,8 @@ Telegram bot for *@carsurfing* project.
 
  * ##### Localy
 
-    - run `bash deploy_local.sh` script to install *Python* virtual environment and all dependencies
-    - run `bash run_local.sh` to up server
+    - `bash deploy_local.sh` script to install *Python* virtual environment and all dependencies
+    - `bash run_local.sh` to up server
 
    ###### Required global packages:
 

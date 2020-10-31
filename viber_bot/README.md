@@ -14,8 +14,8 @@ Main server for *@carsurfing* project.
     
  * ##### Localy
 
-   - run `bash local_deploy.sh` to install required packages by local *Composer*
-   - run `bash local_run.sh` to run the server
+   - `bash local_deploy.sh` to install required packages by local *Composer*
+   - `bash local_run.sh` to run the server
 
  * ##### On *Heroku*
 

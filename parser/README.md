@@ -8,8 +8,8 @@ Sites parser for *@carsurfing* project.
 
 ##### Localy
 
- * run `bash local_deploy.sh` to install all dependencies
- * run `bash local_run.sh` to run parser server
+ * `bash local_deploy.sh` to install all dependencies
+ * `bash local_run.sh` to run parser server
 
 ##### On *Heroku*
  

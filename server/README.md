@@ -7,8 +7,8 @@ Main server for *@carsurfing* project.
     
  * ##### Localy
 
-   - run `bash deploy_local.sh` to install *Python* virtual environment and required packages
-   - run `bash run_local.sh` to run the server
+   - `bash deploy_local.sh` to install *Python* virtual environment and required packages
+   - `bash run_local.sh` to run the server
 
    ###### Required global packages:
 
