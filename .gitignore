@@ -2,12 +2,6 @@
 *.log
 **/__pycache__
 
-# server
-/server/py_env
-
 # telegram bot
 /telegram_bot/py_env
 /telegram_bot/node_modules
-
-# parser
-/parser/node_modules

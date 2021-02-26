@@ -1,5 +1,0 @@
-Dockerfile
-.dockerignore
-README.md
-dump_deploy.sh
-dump_pull.sh

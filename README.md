@@ -1,11 +1,21 @@
-# Challenger aka @carsurfing
+# Challenger🚙
 
-![license](https://img.shields.io/github/license/bringmetheaugust/Yasya_and_friends) ![releaze](https://img.shields.io/github/v/release/bringmetheaugust/Challenger) ![realise date](https://img.shields.io/github/release-date/bringmetheaugust/Challenger) ![issues](https://img.shields.io/github/issues-raw/bringmetheaugust/Challenger) ![PR](https://img.shields.io/github/issues-pr-raw/bringmetheaugust/Challenger)
 
-## What is this?
+![online](https://img.shields.io/website?url=http://challenger.ua) ![license](https://img.shields.io/github/license/bringmetheaugust/Challenger) ![releaze](https://img.shields.io/github/v/release/bringmetheaugust/Challenger) ![realise date](https://img.shields.io/github/release-date/bringmetheaugust/Challenger) ![issues](https://img.shields.io/github/issues-raw/bringmetheaugust/Challenger) ![PR](https://img.shields.io/github/issues-pr-raw/bringmetheaugust/Challenger)
+
+***
+
+<div align="center">
+<h3><b>📣PROJECT IS FROZEN</b></h3>
+it doesn't work at the moment, all description is not actual
+</div>
+
+***
+
+## Description
 
 Bots for searching cars on all ukrainians automobile commerce platforms.
-After a few simple staps, bot subscribes Your on search and sends to You every new car models wich You have chosen.
+After a few simple steps, bot subscribes Your on search and sends to You every new car models wich You have chosen.
 
 ## How can I join it?
 
@@ -21,11 +31,6 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 :pushpin:Development links are on the same **Docs**.
 
 ## How can I deploy this?
-
- * ##### Localy
-
-   Install all modules separately.    
-   All deployment **Docs** are in the same modules.
 
  * ##### Localy by Docker🐋
 
@@ -43,18 +48,15 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
 
 ## Docs
 
-#### Main docs
+ * Main docs
 
    - [main server](./server/README.md)
       * [api docs](./server/API_DOC.md)
-      * [api responce doc](./server/API_RESPONCE_DOC.md)
 
    - [telegram bot](./telegram_bot/README.md)
       * [bot commands](./telegram_bot/BOT_COMMANDS.md)
 
-   - [site parser](./parser/README.md)
-
-#### Heroku data
+ * Heroku data
 
    * ![Telegram](https://img.shields.io/badge/-telegram-000?&logo=telegram)
       - url: <a>https://challenger-telegram.herokuapp.com</a></li>
@@ -67,10 +69,6 @@ After a few simple staps, bot subscribes Your on search and sends to You every n
       - git remote server name: <code>heroku-server</code></li>
       - git remote <code>https://git.heroku.com/challenger-server.git</code>
       - *Heroku* name: <code>challenger-server</code></li>
-
-## Who made this?
-
-August Luzanovsky, 2020 [![GitHub](https://img.shields.io/badge/-GitHub-000?&logo=github)](https://github.com/bringmetheaugust)
 
 ## WTF?
 
@@ -97,6 +95,3 @@ August Luzanovsky, 2020 [![GitHub](https://img.shields.io/badge/-GitHub-000?&log
       </li>
    </ul>
 </details>
-
-Be my Challenger!
-🏎🚗🚙🚌🚛

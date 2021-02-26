@@ -1,9 +1,0 @@
-Dockerfile
-.dockerignore
-py_env
-API_DOC.md
-API_RESPONCE_DOC.md
-deploy_local.sh
-run_local.sh
-Procfile
-README.md

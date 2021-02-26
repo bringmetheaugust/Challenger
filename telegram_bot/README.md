@@ -1,6 +1,4 @@
-## What is this?   
-
-Telegram bot for *@carsurfing* project.
+# Telegram bot for *@carsurfing* project.
 
 ## How can I join it?
 
@@ -9,7 +7,7 @@ Telegram bot for *@carsurfing* project.
 
 ## How can I deploy it?
 
- * ##### Localy
+ * localy
 
     - `bash deploy_local.sh` script to install *Python* virtual environment and all dependencies
     - `bash run_local.sh` to up server
@@ -22,7 +20,7 @@ Telegram bot for *@carsurfing* project.
       * *yarn v1+*
       * *NodeJs v10+*
 
- * ##### On *Heroku*
+ * on *Heroku*
 
     - `git push heroku-telegram BRANCH:master`
 
